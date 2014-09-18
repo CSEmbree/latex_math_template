@@ -1,0 +1,128 @@
+\newenvironment{problem}[2][Problem]{\begin{trivlist}\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]\itshape}{\end{trivlist}}
+\usepackage{amsfonts,amssymb,amsmath,enumerate,ifthen}
+\newcommand{\clos}[1]{\overline{#1}}
+\newcommand{\inte}[1]{#1^O}
+\newcommand{\proof}{ \noindent \textbf{Proof:} \ \ }
+\newcommand{\solution}{ \noindent \textbf{Solution:} \ \ }
+\newcommand{\proofends}{\ \,\\ \noindent\makebox[\linewidth]{\hfill \resizebox{0.35\linewidth}{1.2pt}{$\Box$}\hfill $\Box$ }\bigskip \bigskip}
+\newcommand{\solutionends}{\ \,\\ \noindent\makebox[\linewidth]{\hfill \resizebox{0.35\linewidth}{1.2pt}{$\Box$}\hfill }\bigskip \bigskip}
+ %\noindent\makebox[\linewidth]{\rule{.75\paperwidth}{.2pt}}
+
+
+ % These are shortcuts for limits
+     \newcommand{\limn}{\lim_{n\to\infty}}
+
+ % These are shortcuts for integrals
+     \newcommand{\fmu}{\int f\, d\mu}
+     \newcommand{\fnmu}{\int f_n\, d\mu}
+     \newcommand{\fla}{\int f\, d\lambda}
+     \newcommand{\fnla}{\int f_n\, d\lambda}
+
+ % These are shortcuts for other stuff
+     \usepackage{amsfonts,ifthen,epsfig,amssymb,amsmath,color,graphicx,tikz}
+     \newcommand{\mybox}[1]{\mbox{\ #1\ }}
+     \newcommand{\unionn}{\bigcup_{n=1}^\infty}
+     \newcommand{\intern}{\bigcap_{n=1}^\infty}
+     \newcommand{\ds}[1]{{\displaystyle #1}}
+     \newcommand{\at}[2][rrrrrrrrrrrrrr]{    %Se debe utilizar así \at[llll]{1&2&3\\ 4&5&5}
+                                        % Cuando el argumento es opcional se ponen []
+                     \begin{array}{#1}
+                     #2\\
+                     \end{array}}
+    \newcommand{\defi}[2]{#1 = \left\{\at[lllllllllllll]{#2}\right.} %\defi{f(x)}{3 & x\le 4\\ 2 & x>4}
+    \newlength{\tamano} %asignar una longitud de nombre tamano
+    \newcommand{\linfantasma}[1]{\settowidth{\tamano}{#1}
+                       \underline{\makebox[\tamano]{}}}
+    \newcommand{\cua}[1]{\settowidth{\tamano}{#1}
+                       \framebox[\tamano][c]{#1}}
+                       
+    \newcommand{\mynotes}{\vspace{2.5cm}{\small
+      \begin{center}
+      \begin{tabular}{ll}  \hline
+        \multicolumn{2}{|c|}{\textsc{My Grading Style}}\\ \hline \\[-1mm]
+        $\ \ \ \ \ \ \bigcirc$ & Fully Commented \\[1mm]
+        $\ \ \ \ \ \ \bigcirc$ & Office Review\\[1mm]
+        $\ \ \ \ \ \ \bigcirc$ & Total Anarchist
+      \end{tabular}\\[1.5cm]
+      \begin{tabular}{ll}   \hline
+        \multicolumn{2}{|c|}{\textsc{My Late Penalty}}\\ \hline\\[1mm]
+        Due Date       & \linfantasma{February 200000} \\[4mm]
+        Day Turned in & \linfantasma{February 200000} \\[4mm]
+        Late Penalty  & \linfantasma{February 200000}\\
+      \end{tabular}\\[1.5cm]
+      \cua{\
+      \begin{tabular}{ll}
+        \multicolumn{2}{c}{\tiny For Official Use Only}\\[1mm] \hline\\[0mm]
+        \multicolumn{2}{c}{\textsc{Score}}\\[2mm]
+        Total Points       & \linfantasma{2000000000} \\[1mm]
+        Late Penalty    & \linfantasma{2000000000} \\[1mm]
+        Final Score    & \linfantasma{2000000000} \\[1mm]
+      \end{tabular}
+      \ }
+      \end{center}
+      }}
+
+     \newcommand{\mystart}{\date{}\maketitle\thispagestyle{empty}\vspace{1cm}\mynotes\newpage}
+     \author{\,\\[1mm] \LARGE \textbf{\myhomework}\\[2mm]\underline{\myname}\\[4mm]{\LARGE \textsc{\mytopic}}}
+     \newcommand{\finv}[1]{f^{-1}\left(#1\right)}
+
+ % This is a shortcuts for indicator
+     \DeclareSymbolFont{mine}{OML}{cmm}{m}{it}\DeclareMathSymbol{\chii}{0}{mine}{'037}
+     \newcommand{\indic}[1]{\mathrel{\scalebox{1.25}{$\chii$}_{\raisebox{-.75ex}{\scriptsize{$#1$}}}}\hspace{-1.5mm}}
+
+ % These are shortcuts for Reals, Rationals, etc.
+     \newcommand{\R}{{\mathbb R}}
+     \newcommand{\I}{{\mathbb I}}
+     \renewcommand{\P}{{\mathbb P}}
+     \newcommand{\Q}{{\mathbb Q}}
+     \newcommand{\N}{{\mathbb N}}
+     \newcommand{\C}{{\mathbb C}}
+     \newcommand{\F}{{\mathcal F}}
+     \newcommand{\Z}{{\mathbb Z}}
+     \newcommand{\A}{\ensuremath{{\Bbb A}}}
+     \newcommand{\B}{\ensuremath{{\Bbb B}}}
+     \newcommand{\then}{\Rightarrow}
+
+
+\newcommand{\fancihomework}[3]{
+            \setlength{\topmargin}{1cm} %It was -2.5 for early versions of miktex (<2.8)
+            \setlength{\headsep}{0.5in}
+            \setlength{\textheight}{22.5cm}\setlength{\oddsidemargin}{0cm}\setlength{\evensidemargin}{0cm}\setlength{\textwidth}{15cm}
+            \setlength{\headheight}{.5cm}
+            \thispagestyle{empty}\usepackage{fancyhdr}
+            \pagestyle{fancy}
+            \fancyhf{} %delete the current section for header and footer
+            \fancyhead[LE,RO]{\bfseries #3/\ \ \ \thepage}
+            \fancyhead[LO,CE]{\bfseries #1}
+            \fancyhead[CO,RE]{\nouppercase{\bfseries #2} }
+            \renewcommand{\headrulewidth}{.5pt}
+            \fancypagestyle{plain}{}}
+
+
+\newcommand{\mini}[2]{\begin{minipage}{#1\textwidth}
+            \begin{flushleft}#2\end{flushleft}\end{minipage}}
+\newif \ifhint
+\newcommand{\hint}[1]{\ifhint{{\tiny \textbf{Hint}: #1}}\else{}\fi}
+
+
+\newcommand{\Union}[3]{\bigcup_{#3} #1_{#2}} %Usage \Union{E}{x}{y}= big union over all y of E_x
+\newcommand{\Inter}[3]{\bigcap_{#3} #1_{#2}} %Usage \Inter{E}{x}{y}=big intersection over all y of E_x
+\newcommand{\Aunion}[2]{\Union{#1}{#2}{\al\in \A}} %Usage \AUnion{E}{x}= big union over all \al in A of E_x
+\newcommand{\Ainter}[2]{\Inter{#1}{#2}{\al\in \A}} %Usage \AInter{E}{x}= big intersection over all \al in A of E_x
+\newcommand{\Ual}[1][E]{\Aunion{E}{\al}} %Usage \Ual{B}= big union over all \al in A of B_\al
+                                         %Usage \Ual=big union over all \al in A of E_\al
+\newcommand{\Ial}[1][E]{\Ainter{E}{\al}} %Usage \Ial{B}= big intersection over all \al in A of B_x
+                                         %Usage \Ial=big intersection over all \al in A of E_\al
+\newcommand{\UEl}[1][E_n]{\bigcup_{n=1}^\infty #1}
+\newcommand{\IEl}[1][E_n]{\bigcap_{n=1}^\infty #1}
+\newcommand{\Un}[1][E_n]{\bigcup_{n=1}^\infty #1}
+\newcommand{\In}[1][E_n]{\bigcap_{n=1}^\infty #1}
+\newcommand{\UE}[1][E_n]{\bigcup_{n=1}^\infty #1}
+\newcommand{\IE}[1][E_n]{\bigcap_{n=1}^\infty #1}
+
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ex}{\exists}
+\newcommand{\fa}{\forall}
+
+\newcommand{\textito}[1]{\hspace{-1.2cm}\textbf{#1}} 
